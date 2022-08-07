@@ -2,6 +2,7 @@ import mongoose from "mongoose";
 
 const restaurantSchema = mongoose.Schema({
     name: String,
+    title: String,
     desc: String,
     tags: [String],
     selectedFile: String,
@@ -11,7 +12,7 @@ const restaurantSchema = mongoose.Schema({
     },
     createdAt: {
         type: Date,
-        defuault: new Date()
+        default: new Date()
     }
     
 })

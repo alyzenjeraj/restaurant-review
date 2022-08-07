@@ -6,5 +6,6 @@ const router = express.Router();
 
 router.get('/', getRestaurants)
 router.post('/', createRestaurant)
+router.patch('/:id', updateRestaurant)
 
 export default router;

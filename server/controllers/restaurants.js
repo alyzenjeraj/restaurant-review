@@ -1,3 +1,4 @@
+import mongoose from "mongoose";
 import Restaurant from "../models/restaurantInfo.js" 
 
 export const getRestaurants = async (req, res) => {
@@ -22,4 +23,14 @@ export const createRestaurant = async (req, res) => {
     } catch (error) {
         res.status(409).json({message: error.message})
     }
+}
+
+export const updateRestaurant = async (req, res) => {
+    const { id: _id } = req.params;
+    const restaurant = req.body;
+
+    if(mongoose.Types.ObjectId.isValid(_id)) return res.status(404).send('No Post with ID')
+    const updatedRestaurant = await RestaurantMessage.findByIdAndUpdate(_id, restaurant, { new: true })
+
+    res.json(updateRestaurant)
 }
